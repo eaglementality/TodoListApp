@@ -37,6 +37,6 @@
             "isActive":false,
             "isComplete":false
          }
-
-   ]
+   ],
+   "visibilityFilter":"All"
 }

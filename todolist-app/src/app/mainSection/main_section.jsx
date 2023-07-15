@@ -1,9 +1,8 @@
 'use client'
 import { TaskCard } from "../Card/TodoCard";
-import { appProps } from "../Data Handler/Context";
 import { Droppable, DragDropContext  } from "react-beautiful-dnd";
 import { useState, useEffect } from "react";
-
+import { TodoContextProvider } from "../Backend/context";
 export function getFilteredTodos (todos, visibilityFilter){
   switch (visibilityFilter) {
     case 'All':
@@ -21,12 +20,6 @@ export function getFilteredTodos (todos, visibilityFilter){
 
 export default function MainSectionlayout (){
       
-  const { 
-    state, dispatch,
-    Darktheme, setDarktheme, 
-    Icon_light_and_dark, setIcon_light_and_dark,
- } = appProps();
-const { todos, visibilityFilter } = state;
 const icon_moon = <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"><path fill="#FFF" fillRule="evenodd" d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"/></svg>;
 const icon_sun = <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"><path fill="#FFF" fillRule="evenodd" d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z"/></svg>
 const [checkboxbg, setCheckboxbg] = useState(false);
@@ -118,6 +111,7 @@ return(
             </span>
         </div>
     </div>
+<TodoContextProvider>
     <div id="first" className="flex flex-col rounded-lg  space-y-6 px-6 -mt-28">
         <div className={`flex items-center  w-full ${Darktheme ? 'bg-white text-black' : 'bg-dark text-white'}  rounded-md pl-5 py-3.5 px-5`}>
             <span onClick={checkbg} className={`flex cursor-pointer items-center border ${checkboxbg ? 'bg-gradient-to-r from-blue-400 from-90%  to-pink-400 to-10%  text-white':''} border-zinc-400 rounded-full `}>
@@ -165,7 +159,7 @@ return(
             </div>
         </div>
     </div>
-
+</TodoContextProvider>
     <p id="last" className="pt-10 pb-20 text-center font-normal text-zinc-400 text-sm">Drag and drop to reoder list</p>
 
 </main>

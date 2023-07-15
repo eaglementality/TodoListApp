@@ -1,5 +1,5 @@
 'use client'
-import { appProps } from "../Data Handler/Context";
+import { appProps } from "../Backend/context";
 import { Draggable } from "react-beautiful-dnd";
 
 export const TaskCard = ({id, active, task, isComplete}) => {
