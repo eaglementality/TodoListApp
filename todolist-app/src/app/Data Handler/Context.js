@@ -1,6 +1,7 @@
-import React, { useEffect, useReducer, createContext , useContext,useState } from 'react';
-import { reducer } from './Reduce';
-import Data from '../../data.json';
+'use client'
+import { useEffect, useReducer, createContext , useContext,useState } from 'react';
+import { reducer } from "../Backend/Reduce";
+import Data from '../Data/data.json';
 
 
 export const TodolistContext = createContext();

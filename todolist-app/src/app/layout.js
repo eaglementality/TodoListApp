@@ -1,6 +1,7 @@
 import './Styles/globals.css';
+import './Styles/todolist.css';
 import { Inter } from 'next/font/google'
-import AppContext from './Utils/context';
+import AppContext from './Data Handler/Context';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -11,9 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <AppContext>
-      <body className={inter.className}>{children}</body>
-    </AppContext>  
+      <body className={inter.className}><AppContext>{children}</AppContext></body>  
     </html>
   )
 }
