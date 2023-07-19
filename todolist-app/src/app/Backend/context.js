@@ -45,7 +45,7 @@ const initialState = {
   visibilityFilter: 'All',
   uid: '',
 };
-export  function TodoContextProvider(props) {
+export default function TodoContextProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [Darktheme, setDarktheme] = useState(true);
   const [Icon_light_and_dark, setIcon_light_and_dark]=useState(true);
