@@ -8,8 +8,10 @@ import {
   signOut,
   getAdditionalUserInfo,
 } from 'firebase/auth';
-import { app } from './config';
-import { createUser } from './database';
+import { app } from '../FireBase/config';
+
+import { createUser } from '../FireBase/database';
+
 
 const authContext = createContext();
 
