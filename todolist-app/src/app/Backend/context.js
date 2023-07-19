@@ -83,6 +83,6 @@ export default function TodoContextProvider(props) {
     }>{props.children}</TodoContext.Provider>
   );
 }
-export function appProps(){
+export const appProps = () =>{
   return useContext(TodoContext);
 }
