@@ -1,4 +1,3 @@
-'use client'
 import './Styles/globals.css';
 import './Styles/todolist.css';
 import { Inter } from 'next/font/google'
