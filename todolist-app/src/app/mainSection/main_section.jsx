@@ -2,7 +2,9 @@
 import { TaskCard } from "../Card/TodoCard";
 import { Droppable, DragDropContext  } from "react-beautiful-dnd";
 import { useState, useEffect } from "react";
-import { TodoContextProvider } from "../Backend/context";
+import {appProps} from '../Backend/context';
+// import { useTheme } from "next-themes";
+
 export function getFilteredTodos (todos, visibilityFilter){
   switch (visibilityFilter) {
     case 'All':
@@ -19,12 +21,24 @@ export function getFilteredTodos (todos, visibilityFilter){
 };
 
 export default function MainSectionlayout (){
-      
+ const {
+    state, dispatch,
+    Darktheme, setDarktheme,
+    Icon_light_and_dark, setIcon_light_and_dark
+}= appProps();
+ const {todos , visibilityFilter} = state;     
 const icon_moon = <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"><path fill="#FFF" fillRule="evenodd" d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"/></svg>;
 const icon_sun = <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"><path fill="#FFF" fillRule="evenodd" d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z"/></svg>
+
 const [checkboxbg, setCheckboxbg] = useState(false);
+const [active,setActive]= useState({"All":true,"Active":false, "Complete":false});
 const [isBrowser, setIsBrowser] = useState(false);
 
+
+const [bodyColor,setbodyColor] = useState('white');
+
+// const { systemTheme, theme, setTheme } = useTheme();
+// const currentTheme = theme === 'system' ? systemTheme : theme;
 
 
 
@@ -89,36 +103,65 @@ const add_Task = ()=>{
 const clearcompleted=()=>{
     const clearcompleted = todos.filter(item => item.isComplete != true);
     dispatch({type:'CLEAR_COMPLETED', payload:clearcompleted})
+    
 }
 const All_Task = () =>{ 
-    dispatch({type:'SET_VISIBILITY', payload:'All'}) 
+    dispatch({type:'SET_VISIBILITY', payload:'All'})
+    setActive({"All":true, "Active":false, "Complete":false}) 
 }
  const active_Task = ()=>{
     dispatch({type:'SET_VISIBILITY', payload:'Active'})
+    setActive({"All":false, "Active":true, "Complete": false})
 }
 const Completed_Task =()=>{
     dispatch({type:'SET_VISIBILITY', payload:'Completed'})
+    setActive({"All":false, "Active":false, "Complete":true})
 }
 
+// const toggleLightAndDark = ()=>{
+//     switch (bodyColor) {
+
+//         case 'white' :
+//             setIcon_light_and_dark(false);
+//             setTheme('dark')
+//             setbodyColor('dark');
+//             break;
+
+//         case 'dark':
+//             setIcon_light_and_dark(true);
+//             setTheme('light');
+//             setbodyColor('white')
+//             break;
+//     }
+    
+// }
 
 return(
 <main className= {`${Darktheme ? 'bg-zinc-100 text-black' : 'bg-Verydark text-white'} `}>
-    <div id="first" className={`w-full h-75 ${Darktheme ? 'bg-image_light' : 'bg-image_dark'} px-6`}>
+    <div id="first" 
+    className={`w-full h-75 ${Darktheme?'bg-image_light':'bg-image_dark'} px-6`}>
         <div  className="flex items-center justify-between pb-36 pt-12 ">
             <span className="text-todo font-bold text-3xl text-white tracking-space cursor-default">TODO</span>
-            <span className="cursor-pointer" onClick={toggleLightAndDark}>
+            <span className="cursor-pointer" 
+            //   onClick={() => theme == "dark" ? setTheme('light'): setTheme("dark")}
+            onClick={() => toggleLightAndDark()}
+              >
                 {Icon_light_and_dark ? icon_moon : icon_sun}
             </span>
         </div>
     </div>
-<TodoContextProvider>
-    <div id="first" className="flex flex-col rounded-lg  space-y-6 px-6 -mt-28">
+
+    <div id="first" className={`flex flex-col rounded-lg  space-y-6 px-6 -mt-28`}>
         <div className={`flex items-center  w-full ${Darktheme ? 'bg-white text-black' : 'bg-dark text-white'}  rounded-md pl-5 py-3.5 px-5`}>
-            <span onClick={checkbg} className={`flex cursor-pointer items-center border ${checkboxbg ? 'bg-gradient-to-r from-blue-400 from-90%  to-pink-400 to-10%  text-white':''} border-zinc-400 rounded-full `}>
+            <span onClick={checkbg} className={`flex cursor-pointer items-center border ${checkboxbg ? 'bg-gradient-to-b from-blue-400  to-purple-400    text-white':''} border-zinc-400 rounded-full `}>
                 <svg className="m-1.5" xmlns="http://www.w3.org/2000/svg" width="10" height="9"><path fill="none" stroke={`${checkboxbg?'white':''}`} strokeWidth="2" d="M1 4.304L3.696 7l6-6"/></svg>
             </span>
-            <input id="input"  type="text" name="taskname" className={`ml-3 w-full  rounded-md outline-none ${Darktheme ? ' ' : 'bg-dark'} border-none text-zinc-400 placeholder-zinc-400`} placeholder="Create a new todo..."/>
-            <span onClick={add_Task} className="font-bold text-zinc-400 cursor-pointer text-xl">{'>>'}</span>
+            <input onKeyDown={(e)=>{
+                if(e.which == 13){
+                    return add_Task();
+                }}} 
+            id="input"  type="text" name="taskname" className={`ml-3 w-full  rounded-md outline-none ${Darktheme ?'bg-white':'bg-dark '} border-none text-zinc-400 placeholder-zinc-400`} placeholder="Create a new todo..."/>
+            {/* <span onClick={add_Task} className="font-bold text-zinc-400 cursor-pointer text-xl">{'>>'}</span> */}
         </div>
 
                 { isBrowser ? (
@@ -128,18 +171,21 @@ return(
                             return (
                                 <div
                                     role="list"
-                                    className={`flex flex-col divide-y ${Darktheme ? 'bg-white text-black' : 'bg-dark text-white'} rounded-md`}
+                                    className={`flex flex-col divide-y bg-white text-black rounded-md`}
                                     ref={provided.innerRef}
                                     {...provided.droppableProps}
                                 >
                                  {getFilteredTodos(todos,visibilityFilter).map(
                                     (todo, index) => (
-                                        <TaskCard task={todo.task} key={index} id={todo.id} active={todo.isActive} isComplete={todo.isComplete} />
+                                        <TaskCard task={todo.task} key={index} id={todo.id} isActive={todo.isActive} isComplete={todo.isComplete} />
                                     )
                                     )}
-                                    <div className="shadow-2xl px-5 text-zinc-400 pt-4 pb-5 flex justify-between">
+                                    <div className={`shadow-2xl px-5 ${Darktheme ? 'bg-white':'bg-dark'} text-zinc-400 pt-4 pb-5 flex justify-between`}>
                                         <span className="cursor-default">{todos.length} Items left</span>
-                                        <span className="cursor-pointer" onClick={clearcompleted}>Clear completed</span>
+                                        <span id="mid" onClick={All_Task} className={`${active.All && 'text-blue-400'} hidden sm:block text-blue-400 hover:text-blue-500 cursor-pointer`} >All</span>
+                                        <span id="mid" onClick={active_Task} className={`${active.Active && 'text-blue-400' } hidden sm:block hover:text-zinc-500 cursor-pointer`} >Active</span>
+                                        <span id='mid' onClick={Completed_Task} className={`${active.Complete && 'text-blue-400'} hidden sm:block hover:text-zinc-500 cursor-pointer`}>Completed</span>
+                                        <span className="hover:text-zinc-500 cursor-pointer" onClick={clearcompleted}>Clear completed</span>
                                     </div> 
                                     {provided.placeholder}
                                 </div>
@@ -151,16 +197,16 @@ return(
                 }
       
 
-        <div className={`shadow-2xl px-20 py-3.5 ${Darktheme ? 'bg-white text-black' : 'bg-dark text-white'}  rounded-md font-bold tracking-tight text-zinc-400 `}>
+        <div  className={`block md:hidden shadow-2xl px-20 py-3.5 ${Darktheme ? 'bg-white':'bg-dark'} rounded-md font-bold tracking-tight text-zinc-400 `}>
             <div className='flex justify-between'>
-                <span onClick={All_Task} className="text-blue-400 hover:text-blue-500 cursor-pointer" >All</span>
-                <span onClick={active_Task} className="hover:text-zinc-500 cursor-pointer" >Active</span>
-                <span onClick={Completed_Task} className="hover:text-zinc-500 cursor-pointer">Completed</span>
+                <span onClick={All_Task} className={`${active.All && 'text-blue-400'} hover:text-blue-500 cursor-pointer`} >All</span>
+                <span onClick={active_Task} className={`${active.Active && 'text-blue-400'}hover:text-zinc-500 cursor-pointer`} >Active</span>
+                <span onClick={Completed_Task} className={`${active.Complete && 'text-blue-400'}hover:text-zinc-500 cursor-pointer`}>Completed</span>
             </div>
         </div>
     </div>
-</TodoContextProvider>
-    <p id="last" className="pt-10 pb-20 text-center font-normal text-zinc-400 text-sm">Drag and drop to reoder list</p>
+
+    <p id="last" className="text-center font-normal text-zinc-400 text-sm">Drag and drop to reoder list</p>
 
 </main>
 
