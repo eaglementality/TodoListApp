@@ -16,8 +16,16 @@ padding-right: 35%;
     background-repeat: no-repeat;
     background-size: cover;
 }
-#last{
-    padding-top: 5%;
-    padding-bottom: 12%;
+#opt{
+    display:none;
 }
+#mid{
+    display:block;
+    
+}
+
 } 
+#last{
+    padding-top:10%;
+    padding-bottom:30%
+}
