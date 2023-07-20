@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useReducer,useContext, createContext,useState } from 'react';
+import { useEffect, useReducer,useContext, createContext,useState } from 'react';
 import { reducer } from '../Backend/reduce';
 // import { collection, getDocs, query, where } from 'firebase/firestore';
 import { collection, getDocs, addDoc} from 'firebase/firestore';
@@ -83,6 +83,6 @@ export default function TodoContextProvider(props) {
     }>{props.children}</TodoContext.Provider>
   );
 }
-export const appProps = () =>{
-  return useContext(TodoContext);
-}
+// export const appProps = () =>{
+//   return useContext(TodoContext);
+// }
