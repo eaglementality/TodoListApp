@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useReducer,useContext, createContext,useState } from 'react';
+import{ useEffect, useReducer,useContext, createContext,useState } from 'react';
 import { reducer } from '../Backend/reduce';
 // import { collection, getDocs, query, where } from 'firebase/firestore';
 import { collection, getDocs, addDoc} from 'firebase/firestore';
@@ -45,7 +45,7 @@ const initialState = {
   visibilityFilter: 'All',
   uid: '',
 };
-export  function TodoContextProvider(props) {
+export default function TodoContextProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [Darktheme, setDarktheme] = useState(true);
   const [Icon_light_and_dark, setIcon_light_and_dark]=useState(true);
@@ -83,6 +83,6 @@ export  function TodoContextProvider(props) {
     }>{props.children}</TodoContext.Provider>
   );
 }
-export function appProps(){
-  return useContext(TodoContext);
-}
+// export function appProps(){
+//   return useContext(TodoContext);
+// }

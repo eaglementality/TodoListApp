@@ -1,11 +1,12 @@
 'use client'
-import { appProps } from "../Backend/context";
+// import { appProps } from "../Backend/context";
+import { TodoContext } from "../Backend/context";
 import { Draggable } from "react-beautiful-dnd";
-// import {useState} from 'react';
+import {useContext} from 'react';
 
 export const TaskCard = ({id, isActive, task, isComplete}) => {
     const {
-        state , dispatch,Darktheme} = appProps();
+        state , dispatch,Darktheme} = useContext(TodoContext);
     const {todos} = state;
    
     // const MakeActive = () => {
