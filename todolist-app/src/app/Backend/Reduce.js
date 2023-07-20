@@ -2,7 +2,7 @@
 import { db } from '../FireBase/config';
 // import { doc, setDoc } from 'firebase/firestore';
 import {doc, addDoc, collection} from 'firebase/firestore';
-export const reducer = (state, action) => {
+export const Reducer = (state, action) => {
   //Passing our new todo if it is provided or passing undefined object
   // const { id, text } = action.payload || { id: undefined, text: undefined };
   // This is our state that we are passing througn the whole app{todo,visibilityFilter}
