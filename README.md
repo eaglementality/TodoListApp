@@ -21,5 +21,6 @@ Why react-beautiful-dnd? I chose this library simply because it offers a good dr
 I used (useReducer with useContext) React hook. (the useContext it is not a state management solution by itself, however combining it with the useReucer it became a full state management solution).
 
 Concerning the light/dark toggle it may be other different approaches to build in Nextjs, I chose to build mine with useState and some stringVariables.
-
+# Deployment link
+https://todo-list-app-8l1u.vercel.app
 # Made by Jesse Yeboah 🎧 
