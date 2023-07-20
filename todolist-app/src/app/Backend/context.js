@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useReducer,useContext, createContext,useState } from 'react';
-import { Reducer } from '../Backend/reduce';
+import { Reducer } from '../Backend/Reduce';
 // import { collection, getDocs, query, where } from 'firebase/firestore';
 import { collection, getDocs, addDoc} from 'firebase/firestore';
 import { db } from '../FireBase/config';
@@ -46,7 +46,7 @@ const initialState = {
   uid: '',
 };
 export default function TodoContextProvider(props) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(Reducer, initialState);
   const [Darktheme, setDarktheme] = useState(true);
   const [Icon_light_and_dark, setIcon_light_and_dark]=useState(true);
   
