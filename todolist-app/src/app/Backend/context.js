@@ -41,7 +41,7 @@ export const TodoContext = createContext();
 // };
 
 const initialState = {
-  todos: Data.AllTasks,
+  todos: [],
   visibilityFilter: 'All',
   uid: '',
 };
