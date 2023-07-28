@@ -38,8 +38,6 @@ const [isBrowser, setIsBrowser] = useState(false);
 
 const [bodyColor,setbodyColor] = useState('white');
 
-// const { systemTheme, theme, setTheme } = useTheme();
-// const currentTheme = theme === 'system' ? systemTheme : theme;
 
 
 
