@@ -5,14 +5,10 @@ import {useContext} from 'react';
 import {TodoContext} from '../Backend/context';
 
 export const TaskCard = ({id, isActive, task, isComplete}) => {
-    const {
-        state , dispatch,Darktheme} = useContext(TodoContext);
+    const {state , dispatch, Darktheme} = useContext(TodoContext);
     const {todos} = state;
    
-    // const MakeActive = () => {
-    //     const ifActive = state.todos.map(task => (task.id === id ? {...task, isActive: !task.isActive}: task))
-    //     dispatch({type:'MAKE_ACTIVE', payload:ifActive});
-    // }
+
     const complete_todo=()=>{
         const todo = todos.map((todo) =>todo.id === id ? { ...todo, isComplete: !todo.isComplete, isActive:!todo.isActive } : todo);
         dispatch({type:'COMPLETE_TODO', payload:todo});
