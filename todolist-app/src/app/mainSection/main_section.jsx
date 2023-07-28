@@ -160,9 +160,9 @@ return(
                                     )}
                                     <div className={`shadow-2xl px-5 ${Darktheme ? 'bg-white':'bg-dark'} text-zinc-400 pt-4 pb-5 flex justify-between`}>
                                         <span className="cursor-default">{todos.length} Items left</span>
-                                        <span id="mid" onClick={All_Task} className={`${active.All && 'text-blue-400'} hidden sm:block text-blue-400 hover:text-blue-500 cursor-pointer`} >All</span>
-                                        <span id="mid" onClick={active_Task} className={`${active.Active && 'text-blue-400' } hidden sm:block hover:text-zinc-500 cursor-pointer`} >Active</span>
-                                        <span id='mid' onClick={Completed_Task} className={`${active.Complete && 'text-blue-400'} hidden sm:block hover:text-zinc-500 cursor-pointer`}>Completed</span>
+                                        <span id="mid" onClick={All_Task} className={`text-blue-400 hidden sm:block text-blue-400 hover:text-blue-500 cursor-pointer`} >All</span>
+                                        <span id="mid" onClick={active_Task} className={`hidden sm:block hover:text-zinc-500 cursor-pointer`} >Active</span>
+                                        <span id='mid' onClick={Completed_Task} className={` hidden sm:block hover:text-zinc-500 cursor-pointer`}>Completed</span>
                                         <span className="hover:text-zinc-500 cursor-pointer" onClick={clearcompleted}>Clear completed</span>
                                     </div> 
                                     {provided.placeholder}
@@ -177,9 +177,9 @@ return(
 
         <div  className={`block md:hidden shadow-2xl px-20 py-3.5 ${Darktheme ? 'bg-white':'bg-dark'} rounded-md font-bold tracking-tight text-zinc-400 `}>
             <div className='flex justify-between'>
-                <span onClick={All_Task} className={`${active.All && 'text-blue-400'} hover:text-blue-500 cursor-pointer`} >All</span>
-                <span onClick={active_Task} className={`${active.Active && 'text-blue-400'}hover:text-zinc-500 cursor-pointer`} >Active</span>
-                <span onClick={Completed_Task} className={`${active.Complete && 'text-blue-400'}hover:text-zinc-500 cursor-pointer`}>Completed</span>
+                <span onClick={All_Task} className={`text-blue-400 hover:text-blue-500 cursor-pointer`} >All</span>
+                <span onClick={active_Task} className={`hover:text-zinc-500 cursor-pointer`} >Active</span>
+                <span onClick={Completed_Task} className={`hover:text-zinc-500 cursor-pointer`}>Completed</span>
             </div>
         </div>
     </div>
