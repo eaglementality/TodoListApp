@@ -36,11 +36,6 @@ const [active,setActive]= useState({"All":true,"Active":false, "Complete":false}
 const [isBrowser, setIsBrowser] = useState(false);
 
 
-const [bodyColor,setbodyColor] = useState('white');
-
-
-
-
 
 useEffect(() => {
   setIsBrowser(process.browser);
@@ -117,23 +112,7 @@ const Completed_Task =()=>{
     setActive({"All":false, "Active":false, "Complete":true})
 }
 
-// const toggleLightAndDark = ()=>{
-//     switch (bodyColor) {
 
-//         case 'white' :
-//             setIcon_light_and_dark(false);
-//             setTheme('dark')
-//             setbodyColor('dark');
-//             break;
-
-//         case 'dark':
-//             setIcon_light_and_dark(true);
-//             setTheme('light');
-//             setbodyColor('white')
-//             break;
-//     }
-    
-// }
 
 return(
 <main className= {`${Darktheme ? 'bg-zinc-100 text-black' : 'bg-Verydark text-white'} `}>
