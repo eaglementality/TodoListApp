@@ -3,7 +3,7 @@ import { db } from '../FireBase/config';
 import {doc, addDoc, collection} from 'firebase/firestore';
 export const Reducer = (state, action) => {
  
-  const { todos, visibilityFilter, uid } = state;
+  const { todos, visibilityFilter} = state;
   switch (action.type) {
     case 'INITIALIZE_TODO':
       return {
