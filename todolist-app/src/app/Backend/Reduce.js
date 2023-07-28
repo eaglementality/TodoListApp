@@ -25,7 +25,7 @@ export const Reducer = (state, action) => {
       return {
         todos: todo,
         visibilityFilter,
-        uid,
+       
       };
     }
     case 'DELETE_TODO': {
@@ -33,7 +33,7 @@ export const Reducer = (state, action) => {
       return {
         todos: action.payload,
         visibilityFilter,
-        uid,
+       
       };
     }
     case 'COMPLETE_TODO': {
@@ -41,7 +41,7 @@ export const Reducer = (state, action) => {
       return {
         todos: action.payload,
         visibilityFilter,
-        uid,
+       
       };
     }
     
@@ -50,7 +50,7 @@ export const Reducer = (state, action) => {
       return {
         todos: action.payload,
         visibilityFilter,
-        uid,
+       
       };
     }
     
@@ -64,7 +64,7 @@ export const Reducer = (state, action) => {
       return {
         todos: [...action.payload.todos],
         visibilityFilter,
-        uid,
+       
       };
     default:
       return state;
