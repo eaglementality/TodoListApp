@@ -28,7 +28,6 @@ export default function TodoContextProvider(props) {
         type: 'INITIALIZE_TODO',
         payload: {
           todos: doc.data().todos,
-          // uid: doc.data().uid,
         },
       });
     });
@@ -47,6 +46,4 @@ export default function TodoContextProvider(props) {
     }>{props.children}</TodoContext.Provider>
   );
 }
-// export const appProps = () =>{
-//   return useContext(TodoContext);
-// }
+
