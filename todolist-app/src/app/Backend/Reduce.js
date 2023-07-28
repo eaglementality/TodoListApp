@@ -12,7 +12,7 @@ export const Reducer = (state, action) => {
       return {
         todos: action.payload.todos,
         visibilityFilter,
-        uid: action.payload.uid,
+        // uid: action.payload.uid,
       };
     case 'ADD_TODO': {
       const todo = [
