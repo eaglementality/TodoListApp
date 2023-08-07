@@ -1,7 +1,7 @@
 'use client'
 import MainSectionlayout from "./mainSection/main_section"
 import Head from "next/head";
-import {useAuth} from './FireBase/auth';
+// import {useAuth} from './FireBase/auth';
 
 export default function Home() {
 // const auth = useAuth() 
