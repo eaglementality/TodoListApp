@@ -2,10 +2,10 @@
 /*-------------------------------- Desktop--------------------------------- */
 
  @media (min-width:1024px) {
- #first{
+ /* #first{
 padding-left: 35%;
 padding-right: 35%;
- }
+ } */
  .bg-image_dark{
     background: url('/assets/images/bg-desktop-dark.jpg');
     background-repeat: no-repeat;
