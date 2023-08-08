@@ -1,4 +1,4 @@
-# TODO-LIST App  📋 built with NEXTjs 😉 and Firestore DB
+# TODO-LIST App  📋 built with NEXTjs 😉 
 ## Design Preview
 ![desktop-preview](https://github.com/eaglementality/Todo-List-APP/assets/97172881/049cf38b-53d0-4d5b-ac48-96bbb4e86c8a)
 ## Requirement
@@ -12,7 +12,7 @@ users should be able to:
 + Clear all completed to-dos
 + Toggle light and dark mode
 + Drag and drop to reorder items on the list
-+ Build this project as a full-stack application
++ Build this project as a frontend application
 ## What i learnt
 There were challenges concerning the drag and drop using the react-beautiful-dnd lib and with Nextjs as it's an SSR(Server Side Render) which can mess up how some libraries operate.
 
