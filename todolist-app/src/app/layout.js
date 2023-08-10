@@ -1,9 +1,12 @@
-'use client'
 import './Styles/globals.css';
 import './Styles/todolist.css';
 import { Inter } from 'next/font/google'
 // import { AuthProvider } from './FireBase/auth';
+<<<<<<< HEAD
 import  TodoContextProvider  from './Backend/context';
+=======
+import TodoContextProvider  from './Backend/context';
+>>>>>>> b68bb6bd64edb96c7ca98c582095847a15814e9f
 // import { ThemeProvider } from 'next-themes';
 const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
