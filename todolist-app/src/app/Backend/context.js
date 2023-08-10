@@ -1,10 +1,8 @@
 'use client'
 import{ useEffect, useReducer,useContext, createContext,useState } from 'react';
 import { reducer } from '../Backend/reduce';
-// import { collection, getDocs, query, where } from 'firebase/firestore';
 import { collection, getDocs, addDoc} from 'firebase/firestore';
 import { db } from '../FireBase/config';
-// import { useAuth } from '../FireBase/auth';
 import  Data from '../Data/data';
 
 export const TodoContext = createContext();
