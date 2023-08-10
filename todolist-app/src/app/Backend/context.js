@@ -1,6 +1,5 @@
 'use client'
 import{ useEffect, useReducer,useContext, createContext,useState } from 'react';
-import { useEffect, useReducer,useContext, createContext,useState } from 'react';
 import { Reducer } from '../Backend/reduce';
 
 import { collection, getDocs, addDoc} from 'firebase/firestore';
